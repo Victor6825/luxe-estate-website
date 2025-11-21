@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Tour - LuxeEstate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>LUXE<span>ESTATE</span></h2></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Schedule Tour Hero -->
+    <section class="schedule-hero">
+        <div class="container">
+            <div class="schedule-header">
+                <h1>Schedule Your <span class="highlight">Property Tour</span></h1>
+                <p>Experience luxury properties firsthand with our personalized guided tours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Form Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="schedule-content">
+                <div class="schedule-info">
+                    <h2>Why Schedule a Tour?</h2>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Flexible Scheduling</h4>
+                            <p>Choose a date and time that works best for you</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-user-tie"></i>
+                            <h4>Expert Guidance</h4>
+                            <p>Our experienced agents will guide you through every detail</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-clock"></i>
+                            <h4>Convenient Times</h4>
+                            <p>Available tours throughout the week, including weekends</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Personalized Service</h4>
+                            <p>Tailored tours based on your preferences and needs</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-box">
+                        <h3>Prefer to Call?</h3>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> tours@luxeestate.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</p>
+                    </div>
+                </div>
+                <div class="schedule-form-container">
+                    <div class="schedule-form-wrapper">
+                        <h2>Book Your Tour</h2>
+                        <!-- 
+                        QUICK SETUP: Add your Web3Forms access key in the script below
+                        Get it from: https://web3forms.com/
+                        -->
+                        <form class="schedule-form" id="tourForm">
+                            
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" placeholder="+1 (555) 123-4567" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Property Interest</label>
+                                <select name="property">
+                                    <option value="">Select a property (optional)</option>
+                                    <option value="penthouse">Modern Penthouse Suite</option>
+                                    <option value="villa">Oceanfront Villa</option>
+                                    <option value="mansion">Luxury Mansion Estate</option>
+                                    <option value="condo">Contemporary Condo</option>
+                                    <option value="other">Other / General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Preferred Date *</label>
+                                    <input type="date" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Preferred Time *</label>
+                                    <select name="time" required>
+                                        <option value="">Select Time</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tour Type</label>
+                                <select name="tour_type">
+                                    <option value="in-person">In-Person Tour</option>
+                                    <option value="virtual">Virtual Tour</option>
+                                    <option value="both">Both (In-Person + Virtual)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Additional Notes</label>
+                                <textarea name="notes" rows="4" placeholder="Any specific requirements or questions..."></textarea>
+                            </div>
+                            <div id="tourFormMessage" class="form-message" style="display: none;"></div>
+                            <button type="submit" class="btn-primary" id="tourSubmitBtn">Schedule Tour</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>LUXE<span>ESTATE</span></h3>
+                    <p>Your trusted partner in luxury real estate</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="properties.html">Property Search</a></li>
+                            <li><a href="index.html#services">Market Analysis</a></li>
+                            <li><a href="index.html#services">Property Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="index.html#testimonials">Testimonials</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="index.html#contact">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuxeEstate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Form submission handling with FormSubmit
+        const tourForm = document.getElementById('tourForm');
+        if (tourForm) {
+            tourForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('tourSubmitBtn');
+                const formMessage = document.getElementById('tourFormMessage');
+                const originalText = submitBtn.textContent;
+                
+                // Get form data for validation
+                const name = tourForm.querySelector('input[name="name"]').value.trim();
+                const email = tourForm.querySelector('input[name="email"]').value.trim();
+                const phone = tourForm.querySelector('input[name="phone"]').value.trim();
+                const date = tourForm.querySelector('input[name="date"]').value;
+                const time = tourForm.querySelector('select[name="time"]').value;
+                
+                // Validation
+                if (!name || !email || !phone || !date || !time) {
+                    showTourMessage('Please fill in all required fields.', 'error');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showTourMessage('Please enter a valid email address.', 'error');
+                    return;
+                }
+                
+                // Update button state
+                submitBtn.textContent = 'Scheduling...';
+                submitBtn.disabled = true;
+                formMessage.style.display = 'none';
+                
+                try {
+                    // Option 1: Try Web3Forms if access key is set
+                    const accessKey = 'YOUR_ACCESS_KEY_HERE';
+                    const property = tourForm.querySelector('select[name="property"]').value || 'Not specified';
+                    const tourType = tourForm.querySelector('select[name="tour_type"]').value || 'In-Person';
+                    const notes = tourForm.querySelector('textarea[name="notes"]').value || 'No additional notes';
+                    
+                    if (accessKey && accessKey !== 'YOUR_ACCESS_KEY_HERE') {
+                        // Use Web3Forms
+                        const formData = new FormData();
+                        formData.append('access_key', accessKey);
+                        formData.append('subject', 'New Tour Booking Request - LuxeEstate');
+                        formData.append('from_name', 'LuxeEstate Website');
+                        formData.append('name', name);
+                        formData.append('email', email);
+                        formData.append('phone', phone);
+                        formData.append('property', property);
+                        formData.append('date', date);
+                        formData.append('time', time);
+                        formData.append('tour_type', tourType);
+                        formData.append('notes', notes);
+                        
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (response.ok && result.success) {
+                            showTourMessage('Thank you! Your tour request has been sent to junaedolawale0011@gmail.com. We will contact you shortly!', 'success');
+                            tourForm.reset();
+                            // Reset minimum date
+                            const dateInput = tourForm.querySelector('input[type="date"]');
+                            if (dateInput) {
+                                const today = new Date().toISOString().split('T')[0];
+                                dateInput.setAttribute('min', today);
+                            }
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } else {
+                        // Option 2: Use mailto as fallback (works immediately)
+                        const mailtoBody = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AProperty: ${property}%0ADate: ${date}%0ATime: ${time}%0ATour Type: ${tourType}%0ANotes: ${notes}`;
+                        const mailtoLink = `mailto:junaedolawale0011@gmail.com?subject=Tour Booking Request - ${date} at ${time}&body=${mailtoBody}`;
+                        
+                        window.location.href = mailtoLink;
+                        showTourMessage('Your email client is opening. Please send the email to complete your booking. Thank you!', 'success');
+                        tourForm.reset();
+                    }
+                } catch (error) {
+                    // Fallback to mailto if Web3Forms fails
+                    const property = tourForm.querySelector('select[name="property"]').value || 'Not specified';
+                    const tourType = tourForm.querySelector('select[name="tour_type"]').value || 'In-Person';
+                    const notes = tourForm.querySelector('textarea[name="notes"]').value || 'No additional notes';
+                    const mailtoBody = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AProperty: ${property}%0ADate: ${date}%0ATime: ${time}%0ATour Type: ${tourType}%0ANotes: ${notes}`;
+                    const mailtoLink = `mailto:junaedolawale0011@gmail.com?subject=Tour Booking Request - ${date} at ${time}&body=${mailtoBody}`;
+                    
+                    window.location.href = mailtoLink;
+                    showTourMessage('Opening your email client. Please send the email to complete your booking.', 'success');
+                    tourForm.reset();
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            // Function to show form messages
+            function showTourMessage(message, type) {
+                const formMessage = document.getElementById('tourFormMessage');
+                formMessage.textContent = message;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Auto-hide success messages after 5 seconds
+                if (type === 'success') {
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }
+            }
+
+            // Set minimum date to today
+            const dateInput = tourForm.querySelector('input[type="date"]');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        }
+    </script>
+    <style>
+        .schedule-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .schedule-header h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .schedule-section {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+
+        .schedule-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .schedule-info h2 {
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .contact-info-box h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info-box i {
+            font-size: 1.2rem;
+        }
+
+        .schedule-form-container {
+            position: sticky;
+            top: 100px;
+        }
+
+        .schedule-form-wrapper {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-form-wrapper h2 {
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .schedule-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .schedule-form input,
+        .schedule-form select,
+        .schedule-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .schedule-form input:focus,
+        .schedule-form select:focus,
+        .schedule-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+            animation: slideDown 0.3s ease;
+        }
+
+        .form-message.success {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+            border: 2px solid #4caf50;
+        }
+
+        .form-message.error {
+            background: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+            border: 2px solid #f44336;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-logo a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .schedule-content {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-form-container {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</body>
+</html>
+

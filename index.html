@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,8 +38,8 @@
                 <h1>Find Your <span class="highlight">Dream Home</span></h1>
                 <p>Discover luxury properties that redefine modern living. From elegant penthouses to stunning villas, we help you find the perfect place to call home.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Explore Properties</button>
-                    <button class="btn-secondary">Schedule Tour</button>
+                    <a href="properties.html" class="btn-primary">Explore Properties</a>
+                    <a href="schedule-tour.html" class="btn-secondary">Schedule Tour</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -276,18 +277,30 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <!-- 
+                    QUICK SETUP (Choose one):
+                    
+                    OPTION 1: Web3Forms (Recommended - 5 min setup)
+                    1. Go to https://web3forms.com/
+                    2. Enter: junaedolawale0011@gmail.com
+                    3. Get your access key
+                    4. Replace "YOUR_ACCESS_KEY_HERE" below with your key
+                    
+                    OPTION 2: Currently using mailto (works immediately)
+                    This opens email client - works now but not ideal for production
+                    -->
+                    <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" id="contactName" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" id="contactEmail" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number">
+                            <input type="tel" name="phone" id="contactPhone" placeholder="Phone Number">
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select name="service" id="contactService" required>
                                 <option value="">Select Service</option>
                                 <option value="buying">Buying a Property</option>
                                 <option value="selling">Selling a Property</option>
@@ -296,9 +309,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5"></textarea>
+                            <textarea name="message" id="contactMessage" placeholder="Your Message" rows="5"></textarea>
                         </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
+                        <div id="formMessage" class="form-message" style="display: none;"></div>
+                        <button type="submit" class="btn-primary" id="submitBtn">Send Message</button>
                     </form>
                 </div>
             </div>

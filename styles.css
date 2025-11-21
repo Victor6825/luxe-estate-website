@@ -305,25 +305,14 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
 }
 
 .about-text {
     display: flex;
     flex-direction: column;
-}
-
-.about-features {
-    display: flex;
-    gap: 1rem;
-    margin-top: 3rem;
-    align-items: stretch;
-    width: 100%;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    overflow-x: auto;
-    padding: 0 0.5rem;
+    height: 100%;
 }
 
 .about-text h2 {
@@ -345,15 +334,17 @@ p {
 }
 
 .about-features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 1.5rem !important;
     margin-top: 3rem;
     align-items: stretch;
     width: 100%;
-    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
+    grid-auto-flow: row;
+    flex-wrap: nowrap;
 }
 
 .feature {
@@ -368,12 +359,10 @@ p {
     justify-content: flex-start;
     align-items: center;
     min-height: 200px;
-    flex: 1;
-    min-width: 180px;
-    max-width: 220px;
     box-sizing: border-box;
-    flex-shrink: 0;
     overflow: hidden;
+    margin: 0;
+    width: 100%;
 }
 
 .feature:hover {
@@ -406,11 +395,15 @@ p {
     line-height: 1.4;
 }
 
+.about-image {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
 .about-image .image-placeholder {
     width: 100%;
-    height: auto;
-    min-height: 300px;
-    max-height: 400px;
+    height: 100%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 20px;
     display: flex;
@@ -761,6 +754,38 @@ p {
 .form-group select option {
     background: #333;
     color: white;
+}
+
+.form-message {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message.success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 2px solid #4caf50;
+}
+
+.form-message.error {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 2px solid #f44336;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer */

@@ -68,38 +68,108 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
+// Form submission handling with FormSubmit
+const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form data
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const phone = contactForm.querySelector('input[type="tel"]').value;
-        const service = contactForm.querySelector('select').value;
-        const message = contactForm.querySelector('textarea').value;
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        const originalText = submitBtn.textContent;
         
-        // Simple validation
+        // Get form data
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+        const service = document.getElementById('contactService').value;
+        const message = document.getElementById('contactMessage').value.trim();
+        
+        // Enhanced validation
         if (!name || !email || !service) {
-            alert('Please fill in all required fields.');
+            showFormMessage('Please fill in all required fields.', 'error');
             return;
         }
         
-        // Simulate form submission
-        const submitBtn = contactForm.querySelector('.btn-primary');
-        const originalText = submitBtn.textContent;
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showFormMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Update button state
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
+        formMessage.style.display = 'none';
         
-        setTimeout(() => {
-            alert('Thank you for your message! We will get back to you soon.');
+        try {
+            // Option 1: Try Web3Forms if access key is set
+            const accessKey = 'YOUR_ACCESS_KEY_HERE';
+            
+            if (accessKey && accessKey !== 'YOUR_ACCESS_KEY_HERE') {
+                // Use Web3Forms
+                const formData = new FormData(contactForm);
+                formData.append('access_key', accessKey);
+                formData.append('subject', 'New Contact Form Submission - LuxeEstate');
+                formData.append('from_name', 'LuxeEstate Website');
+                
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    showFormMessage('Thank you! Your message has been sent successfully to junaedolawale0011@gmail.com. We will get back to you soon!', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } else {
+                // Option 2: Use mailto as fallback (works immediately)
+                const mailtoLink = `mailto:junaedolawale0011@gmail.com?subject=New Contact Form - LuxeEstate&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone || 'Not provided')}%0AService: ${encodeURIComponent(service)}%0AMessage: ${encodeURIComponent(message || 'No message')}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                showFormMessage('Your email client is opening. Please send the email to complete your submission. Thank you!', 'success');
+                contactForm.reset();
+            }
+        } catch (error) {
+            // Fallback to mailto if Web3Forms fails
+            const mailtoLink = `mailto:junaedolawale0011@gmail.com?subject=New Contact Form - LuxeEstate&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone || 'Not provided')}%0AService: ${encodeURIComponent(service)}%0AMessage: ${encodeURIComponent(message || 'No message')}`;
+            
+            window.location.href = mailtoLink;
+            showFormMessage('Opening your email client. Please send the email to complete your submission.', 'success');
             contactForm.reset();
+        } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 2000);
+        }
     });
+    
+    // Function to show form messages
+    function showFormMessage(message, type) {
+        const formMessage = document.getElementById('formMessage');
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        formMessage.style.display = 'block';
+        
+        // Scroll to message
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+    }
 }
 
 // Counter animation for stats
