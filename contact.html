@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact LuxeEstate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>LUXE<span>ESTATE</span></h2></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li class="nav-cta"><a href="schedule-tour.html" class="btn-primary btn-small">Schedule Tour</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-grid">
+                <div class="page-hero-text">
+                    <p class="highlight">Connect With Us</p>
+                    <h1>Your Dedicated Luxury Advisory Desk</h1>
+                    <p>Whether you’re scouting a new address, curating an investment thesis, or relocating an entire household, our advisors are one conversation away.</p>
+                    <div class="hero-buttons">
+                        <a href="tel:+15551234567" class="btn-primary">Call +1 (555) 123-4567</a>
+                        <a href="mailto:junaedolawale0011@gmail.com" class="btn-secondary">Email Concierge</a>
+                    </div>
+                </div>
+                <div class="page-hero-media">
+                    <div class="image-placeholder">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container contact-page-grid">
+            <div class="info-card">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <h4>Private Client Line</h4>
+                <p>+1 (555) 123-4567</p>
+                <p>Concierge available 7 days/week</p>
+            </div>
+            <div class="info-card">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <h4>Email</h4>
+                <p>concierge@luxeestate.com</p>
+                <p>investments@luxeestate.com</p>
+            </div>
+            <div class="info-card">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <h4>Office Hours</h4>
+                <p>Mon–Fri: 8:00 AM – 8:00 PM</p>
+                <p>Sat: 10:00 AM – 4:00 PM</p>
+                <p>Sun & Holidays: By appointment</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" style="background:#f5f7fa;">
+        <div class="container contact-page-grid">
+            <div class="map-card">
+                <h3>Flagship Studio</h3>
+                <p>123 Luxury Avenue, Beverly Hills, CA 90210</p>
+                <div class="map-placeholder">
+                    Interactive Map Placeholder
+                </div>
+                <p>By-appointment previews, VR-immersive tours, and private events hosted weekly.</p>
+            </div>
+            <div class="contact-form" style="background:white;">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" id="contactName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="contactEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="contactPhone" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <select name="service" id="contactService" required>
+                            <option value="">Select Service</option>
+                            <option value="buying">Buying a Property</option>
+                            <option value="selling">Selling a Property</option>
+                            <option value="renting">Renting a Property</option>
+                            <option value="consultation">Portfolio Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="contactMessage" placeholder="Share details about your goals" rows="5"></textarea>
+                    </div>
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                    <button type="submit" class="btn-primary" id="submitBtn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Global Studios</h2>
+                <p>Meet us in a city near you or request a traveling advisor.</p>
+            </div>
+            <div class="office-grid">
+                <div class="office-card">
+                    <h4>Los Angeles</h4>
+                    <p>850 Crescent Drive, Beverly Hills</p>
+                    <p>+1 (310) 555-1122</p>
+                </div>
+                <div class="office-card">
+                    <h4>New York</h4>
+                    <p>23 Hudson Yards, Manhattan</p>
+                    <p>+1 (212) 555-8899</p>
+                </div>
+                <div class="office-card">
+                    <h4>Dubai</h4>
+                    <p>Level 31, Burj Daman, DIFC</p>
+                    <p>+971 4 555 0911</p>
+                </div>
+                <div class="office-card">
+                    <h4>London</h4>
+                    <p>52 Grosvenor Gardens, Belgravia</p>
+                    <p>+44 20 5550 4123</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" style="background:#f5f7fa;">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently Asked</h2>
+                <p>Quick answers from our concierge desk.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>How soon can we begin a search?</h4>
+                    <p>Within 24 hours of our initial call we can launch your strategy sprint, complete with secure dashboards and curated listings.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you work with international buyers?</h4>
+                    <p>Yes, our global mobility practice manages visas, tax planning, and cross-border financing structures.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you manage my property after closing?</h4>
+                    <p>Absolutely. Our Estate Care division covers staffing, rental programs, and luxury guest experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container cta-banner">
+            <h2>Tell us what home means to you — we’ll take care of the rest.</h2>
+            <p>Share your goals and we’ll connect you with a senior advisor today.</p>
+            <div class="hero-buttons">
+                <a href="schedule-tour.html" class="btn-primary">Plan a Meeting</a>
+                <a href="properties.html" class="btn-secondary">View Current Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>LUXE<span>ESTATE</span></h3>
+                    <p>Your trusted partner in luxury real estate</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">Property Search</a></li>
+                            <li><a href="services.html">Market Analysis</a></li>
+                            <li><a href="services.html">Property Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonials.html">Success Stories</a></li>
+                            <li><a href="contact.html">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuxeEstate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

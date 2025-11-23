@@ -1,6 +1,6 @@
-# LuxeEstate - Luxury Real Estate Landing Page
+# LuxeEstate - Luxury Real Estate Website
 
-A modern, responsive landing page for luxury real estate services built with HTML, CSS, and JavaScript.
+A modern, responsive multi-page experience for luxury real estate services built with HTML, CSS, and JavaScript.
 
 ## Features
 
@@ -11,17 +11,23 @@ A modern, responsive landing page for luxury real estate services built with HTM
   - Animated counters for statistics
   - Hover effects on cards and buttons
   - Mobile-friendly hamburger menu
-- **Contact Form**: Functional contact form with validation
+- **Interactive Elements**: 
+  - Smooth scrolling interactions on in-page links
+  - Animated counters for statistics
+  - Hover effects on cards and buttons
+  - Mobile-friendly hamburger menu
+- **Contact & Booking Forms**: Email-ready forms powered by Web3Forms or graceful mailto fallbacks
 - **Performance Optimized**: Fast loading with optimized CSS and JavaScript
 
-## Sections
+## Pages
 
-- **Hero Section**: Eye-catching header with call-to-action buttons and statistics
-- **About Section**: Company information with feature highlights
-- **Services Section**: Six core services offered by the real estate company
-- **Testimonials Section**: Customer reviews and ratings
-- **Contact Section**: Contact information and inquiry form
-- **Footer**: Additional links and company information
+- **Home (`index.html`)**: Hero, featured stats, service previews, testimonials, and CTAs
+- **About (`about.html`)**: Story, leadership profiles, values, and milestones
+- **Services (`services.html`)**: Detailed offering breakdown, process, and resources
+- **Properties (`properties.html`)**: Search filters and curated listings
+- **Testimonials (`testimonials.html`)**: Case studies, reviews, and press highlights
+- **Schedule Tour (`schedule-tour.html`)**: Guided-tour booking form and benefits
+- **Contact (`contact.html`)**: Global studios, enhanced contact form, FAQ, and map placeholder
 
 ## Technologies Used
 
@@ -43,7 +49,7 @@ A modern, responsive landing page for luxury real estate services built with HTM
    cd real-estate-landing
    ```
 
-3. Open `index.html` in your web browser to view the website.
+3. Open `index.html` in your web browser to view the website. Navigate using the header links to explore every page.
 
 ## Live Demo
 
