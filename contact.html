@@ -82,7 +82,13 @@
                 <h3>Flagship Studio</h3>
                 <p>123 Luxury Avenue, Beverly Hills, CA 90210</p>
                 <div class="map-placeholder">
-                    Interactive Map Placeholder
+                    <iframe
+                        src="https://www.google.com/maps?q=1600+Pennsylvania+Avenue+NW,+Washington,+DC+20500&output=embed"
+                        title="Map showing 1600 Pennsylvania Avenue NW, Washington, DC"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <p>By-appointment previews, VR-immersive tours, and private events hosted weekly.</p>
             </div>
@@ -222,6 +228,19 @@
     </footer>
 
     <script src="script.js"></script>
+    <style>
+        /* Ensure highlight text is white in hero section */
+        .page-hero .highlight,
+        .page-hero-text .highlight,
+        .page-hero-text p.highlight {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+            background: none !important;
+            background-image: none !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 1 !important;
+        }
+    </style>
 </body>
 </html>
 

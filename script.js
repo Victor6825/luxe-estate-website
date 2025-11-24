@@ -316,3 +316,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 });
+
+// Property filter logic (Properties page)
+document.addEventListener('DOMContentLoaded', () => {
+    const locationSelect = document.getElementById('filter-location');
+    const typeSelect = document.getElementById('filter-type');
+    const priceSelect = document.getElementById('filter-price');
+    const bedroomSelect = document.getElementById('filter-bedrooms');
+    const filterButton = document.getElementById('filter-button');
+    const propertyCards = document.querySelectorAll('.properties-grid .property-card');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+
+    if (!locationSelect || propertyCards.length === 0) return;
+
+    const filters = [locationSelect, typeSelect, priceSelect, bedroomSelect];
+
+    const matchesPriceRange = (range, price) => {
+        if (!range) return true;
+        switch (range) {
+            case '0-2m':
+                return price <= 2000000;
+            case '2m-5m':
+                return price >= 2000000 && price <= 5000000;
+            case '5m-10m':
+                return price >= 5000000 && price <= 10000000;
+            case '10m+':
+                return price >= 10000000;
+            default:
+                return true;
+        }
+    };
+
+    const matchesBedrooms = (minBedrooms, cardBedrooms) => {
+        if (!minBedrooms) return true;
+        return Number(cardBedrooms) >= Number(minBedrooms);
+    };
+
+    const applyFilters = () => {
+        let visibleCount = 0;
+        propertyCards.forEach(card => {
+            const cardLocation = card.dataset.location;
+            const cardType = card.dataset.type;
+            const cardPrice = Number(card.dataset.price);
+            const cardBedrooms = Number(card.dataset.bedrooms);
+
+            const matchesLocation = !locationSelect.value || cardLocation === locationSelect.value;
+            const matchesType = !typeSelect.value || cardType === typeSelect.value;
+            const matchesPrice = matchesPriceRange(priceSelect.value, cardPrice);
+            const matchesBeds = matchesBedrooms(bedroomSelect.value, cardBedrooms);
+
+            const isVisible = matchesLocation && matchesType && matchesPrice && matchesBeds;
+            card.style.display = isVisible ? '' : 'none';
+
+            if (isVisible) visibleCount++;
+        });
+
+        if (noResultsMessage) {
+            noResultsMessage.style.display = visibleCount ? 'none' : 'block';
+        }
+    };
+
+    if (filterButton) {
+        filterButton.addEventListener('click', applyFilters);
+    }
+
+    filters.forEach(select => {
+        if (select) {
+            select.addEventListener('change', applyFilters);
+        }
+    });
+});
