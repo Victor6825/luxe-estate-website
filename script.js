@@ -105,7 +105,7 @@ if (contactForm) {
         
         try {
             // Option 1: Try Web3Forms if access key is set
-            const accessKey = 'YOUR_ACCESS_KEY_HERE';
+            const accessKey = '1e7b3cdc-e487-43bf-a31c-b0fb90766fed';
             
             if (accessKey && accessKey !== 'YOUR_ACCESS_KEY_HERE') {
                 // Use Web3Forms
