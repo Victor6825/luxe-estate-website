@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeEstate Admin</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="auth-view" id="authView">
+      <h1>LuxeEstate Admin</h1>
+      <p class="muted">Sign in to manage properties, submissions, and content blocks.</p>
+      <form id="loginForm">
+        <label>
+          Email
+          <input type="email" id="loginEmail" required>
+        </label>
+        <label>
+          Password
+          <input type="password" id="loginPassword" required>
+        </label>
+        <button type="submit">Sign In</button>
+        <p class="error" id="loginError"></p>
+      </form>
+    </div>
+
+    <div class="dashboard" id="dashboard" hidden>
+      <header>
+        <div>
+          <h2 id="welcomeText">Welcome back</h2>
+          <p class="muted">Monitor leads, manage listings, and update site content.</p>
+        </div>
+        <button id="logoutBtn">Logout</button>
+      </header>
+
+      <section class="metrics" id="metrics">
+        <div class="metric-card">
+          <h3>Total Properties</h3>
+          <p id="metricProperties">-</p>
+        </div>
+        <div class="metric-card">
+          <h3>Total Leads</h3>
+          <p id="metricLeads">-</p>
+        </div>
+        <div class="metric-card">
+          <h3>Weekly Inquiries</h3>
+          <pre id="weeklyChart"></pre>
+        </div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Latest Submissions</h3>
+            <button class="link" id="refreshSubmissions">Refresh</button>
+          </div>
+          <div id="submissionsList" class="list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Published Properties</h3>
+            <button class="link" id="refreshProperties">Refresh</button>
+          </div>
+          <div id="propertiesList" class="list"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
+
